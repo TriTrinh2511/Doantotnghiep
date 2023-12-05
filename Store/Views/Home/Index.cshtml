@@ -1,0 +1,244 @@
+﻿@using X.PagedList;
+@using X.PagedList.Mvc.Core;
+@model IPagedList<Store.Models.Product>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="trusted-section mt-100 overflow-hidden">
+    <div class="trusted-section-inner">
+        <div class="container">
+            <div class="row justify-content-center trusted-row">
+                <div class="col-lg-4 col-md-6 col-12">
+                    <div class="trusted-badge rounded p-0">
+                        <div class="trusted-icon">
+                            <img class="icon-trusted" src="./template/store/assets/img/trusted/1.png" alt="icon-1">
+                        </div>
+                        <div class="trusted-content">
+                            <h2 class="heading_18 trusted-heading">Free Shipping & Return</h2>
+                            <p class="text_16 trusted-subheading trusted-subheading-2">
+                                On all order over
+                                $99.00
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <div class="trusted-badge rounded p-0">
+                        <div class="trusted-icon">
+                            <img class="icon-trusted" src="./template/store/assets/img/trusted/2.png" alt="icon-2">
+                        </div>
+                        <div class="trusted-content">
+                            <h2 class="heading_18 trusted-heading">Customer Support 24/7</h2>
+                            <p class="text_16 trusted-subheading trusted-subheading-2">
+                                Instant access to
+                                support
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <div class="trusted-badge rounded p-0">
+                        <div class="trusted-icon">
+                            <img class="icon-trusted" src="./template/store/assets/img/trusted/3.png" alt="icon-3">
+                        </div>
+                        <div class="trusted-content">
+                            <h2 class="heading_18 trusted-heading">100% Secure Payment</h2>
+                            <p class="text_16 trusted-subheading trusted-subheading-2">
+                                We ensure secure
+                                payment!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="featured-collection mt-100 overflow-hidden">
+    <div class="collection-tab-inner">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-heading primary-color">Featured Products</h2>
+            </div>
+            <div class="row">
+                @foreach (var product in Model.Take(8))
+                {
+                    <div class="col-lg-3 col-md-6 col-6" data-aos="fade-up" data-aos-duration="700">
+                        <div class="product-card">
+                            <div class="product-card-img">
+                                <a class="hover-switch" asp-action="Details" asp-controller="Products" asp-route-id="@product.Id">
+                                    <img class="primary-img" src="@product.Image"
+                                         alt="product-img">
+                                </a>
+
+                                <div class="product-badge">
+                                    <span class="badge-label badge-percentage rounded">-44%</span>
+                                </div>
+                            </div>
+                            <div class="product-card-details">
+                                <ul class="color-lists list-unstyled d-flex align-items-center">
+                                    <li>
+                                        <a href="javascript:void(0)"
+                                           class="color-swatch swatch-black active"></a>
+                                    </li>
+                                    <li><a href="javascript:void(0)" class="color-swatch swatch-cyan"></a></li>
+                                    <li>
+                                        <a href="javascript:void(0)" class="color-swatch swatch-purple"></a>
+                                    </li>
+                                </ul>
+                                <h3 class="product-card-title">
+                                    <a href="collection-left-sidebar.html">@product.Name</a>
+                                </h3>
+                                <div class="product-card-price">
+                                    <span class="card-price-regular">@product.Price</span>
+                                    <span class="card-price-compare text-decoration-line-through">@product.Price</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="view-all text-center" data-aos="fade-up" data-aos-duration="700">
+                <a class="btn-primary" asp-action="Index" asp-controller="Products">VIEW ALL</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="testimonial-section mt-100 overflow-hidden home-section">
+    <div class="testimonial-inner">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 col-md-12 col-12" data-aos="fade-right" data-aos-duration="700">
+                    <div class="section-header">
+                        <h2 class="section-heading primary-color">What customer say</h2>
+                        <p class="section-subheading">
+                            The services provided by the officials was smooth and satisfactory. Products and
+                            goods delivered were up to satisfaction.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-6 offset-lg-1 col-md-12 col-12" data-aos="fade-left"
+                     data-aos-duration="700">
+                    <div class="testimonial-container position-relative">
+                        <div class="testimonial-slideshow common-slider" data-slick='{
+                                            "slidesToShow": 1,
+                                            "slidesToScroll": 1,
+                                            "dots": false,
+                                            "arrows": true
+                                        }'>
+                            <div class="testimonial-item">
+                                <div class="testimonial-icon-wrap d-flex align-items-center">
+                                    <div class="testimonial-icon-quote">
+                                        <svg width="40" height="29" viewBox="0 0 40 29" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M0 28.99L11.7 0H19.5L12.22 28.99H0ZM20.28 28.99L32.11 0H39.91L32.5 28.99H20.28Z"
+                                                  fill="#00234D" />
+                                        </svg>
+                                    </div>
+                                    <div class="testimonial-icon-star d-flex align-items-center ms-3">
+                                        <img src="./template/store/assets/img/icon/star.png" alt="img">
+                                        <img src="./template/store/assets/img/icon/star.png" alt="img">
+                                        <img src="./template/store/assets/img/icon/star.png" alt="img">
+                                        <img src="./template/store/assets/img/icon/star.png" alt="img">
+                                        <img src="./template/store/assets/img/icon/star.png" alt="img">
+                                    </div>
+                                </div>
+                                <p class="testimonial-review my-4 text_16">
+                                    “ I am purchasing furniture from Bisum since the last 6 years. I love
+                                    their
+                                    prompt service and so far I have faced no complaints with their
+                                    furniture.”
+                                </p>
+                                <div class="testimonial-reviewer d-flex align-items-center">
+                                    <div class="reviewer-img">
+                                        <img src="./template/store/assets/img/testimonial/john.jpg" alt="img">
+                                    </div>
+                                    <div class="reviewer-info ms-4">
+                                        <h4 class="reviewer-name heading_18 mb-2 primary-color">
+                                            Floyd Miles
+                                        </h4>
+                                        <p class="reviewer-desig text_14 m-0">Executive, Hypebeast</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="testimonial-item">
+                                <div class="testimonial-icon-wrap d-flex align-items-center">
+                                    <div class="testimonial-icon-quote">
+                                        <svg width="40" height="29" viewBox="0 0 40 29" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M0 28.99L11.7 0H19.5L12.22 28.99H0ZM20.28 28.99L32.11 0H39.91L32.5 28.99H20.28Z"
+                                                  fill="#00234D" />
+                                        </svg>
+                                    </div>
+                                    <div class="testimonial-icon-star d-flex align-items-center ms-3">
+                                        <img src="./template/store/assets/img/icon/star.png" alt="img">
+                                        <img src="./template/store/assets/img/icon/star.png" alt="img">
+                                        <img src="./template/store/assets/img/icon/star.png" alt="img">
+                                        <img src="./template/store/assets/img/icon/star.png" alt="img">
+                                        <img src="./template/store/assets/img/icon/star.png" alt="img">
+                                    </div>
+                                </div>
+                                <p class="testimonial-review my-4 text_16">
+                                    “ I am purchasing furniture from Bisum since the last 6 years. I love
+                                    their
+                                    prompt service and so far I have faced no complaints with their
+                                    furniture.”
+                                </p>
+                                <div class="testimonial-reviewer d-flex align-items-center">
+                                    <div class="reviewer-img">
+                                        <img src="./template/store/assets/img/testimonial/john.jpg" alt="img">
+                                    </div>
+                                    <div class="reviewer-info ms-4">
+                                        <h4 class="reviewer-name heading_18 mb-2 primary-color">
+                                            Floyd Miles
+                                        </h4>
+                                        <p class="reviewer-desig text_14 m-0">Executive, Hypebeast</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="testimonial-item">
+                                <div class="testimonial-icon-wrap d-flex align-items-center">
+                                    <div class="testimonial-icon-quote">
+                                        <svg width="40" height="29" viewBox="0 0 40 29" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M0 28.99L11.7 0H19.5L12.22 28.99H0ZM20.28 28.99L32.11 0H39.91L32.5 28.99H20.28Z"
+                                                  fill="#00234D" />
+                                        </svg>
+                                    </div>
+                                    <div class="testimonial-icon-star d-flex align-items-center ms-3">
+                                        <img src="./template/store/assets/img/icon/star.png" alt="img">
+                                        <img src="./template/store/assets/img/icon/star.png" alt="img">
+                                        <img src="./template/store/assets/img/icon/star.png" alt="img">
+                                        <img src="./template/store/assets/img/icon/star.png" alt="img">
+                                        <img src="./template/store/assets/img/icon/star.png" alt="img">
+                                    </div>
+                                </div>
+                                <p class="testimonial-review my-4 text_16">
+                                    “ I am purchasing furniture from Bisum since the last 6 years. I love
+                                    their
+                                    prompt service and so far I have faced no complaints with their
+                                    furniture.”
+                                </p>
+                                <div class="testimonial-reviewer d-flex align-items-center">
+                                    <div class="reviewer-img">
+                                        <img src="./template/store/assets/img/testimonial/john.jpg" alt="img">
+                                    </div>
+                                    <div class="reviewer-info ms-4">
+                                        <h4 class="reviewer-name heading_18 mb-2 primary-color">
+                                            Floyd Miles
+                                        </h4>
+                                        <p class="reviewer-desig text_14 m-0">Executive, Hypebeast</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="activate-arrows show-arrows-always article-arrows arrows-white"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
